@@ -1,0 +1,14 @@
+.question {
+  margin-bottom: 20px;
+}
+.question__statement {
+  margin-bottom: 10px;
+}
+.green__label {
+  color: green;
+  font-weight: bold;
+}
+.red__label {
+  font-weight: bold;
+  color: red;
+}

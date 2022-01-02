@@ -1,0 +1,20 @@
+@import "../../util/style/components.scss";
+.loginPage {
+    @include center;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+.loginPage__container {
+    border: 2px solid gray;
+    padding: 20px;
+}
+.loginPage__form {
+    display: flex;
+    flex-direction: column;
+    > input {
+        margin: 1rem 0px;
+    }
+    > button {
+        cursor: pointer;
+    }
+}
