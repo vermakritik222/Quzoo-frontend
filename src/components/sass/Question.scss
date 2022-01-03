@@ -1,0 +1,43 @@
+@import "../../util/style/components.scss";
+.question {
+  margin-bottom: 30px;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255) !important;
+}
+.question__statement {
+  font-family: sans-serif;
+  letter-spacing: 0.4px;
+  margin-bottom: 15px;
+  pointer-events: none;
+}
+.option-wrapper {
+  @include flexBox(column);
+  > div {
+    > input[type="radio"] {
+      display: none;
+    }
+  }
+}
+.question__optionLabel {
+  display: flex;
+  font-family: sans-serif;
+  cursor: pointer;
+  align-items: center;
+  padding: 10px;
+  border: 2px solid rgba(172, 170, 170, 0.24);
+  margin: 3px 0px;
+  border-radius: 12px;
+}
+input[type="radio"]:checked ~ label {
+  border-color: #3493ff4f;
+  background-color: #3493ff31;
+}
+.green__label {
+  border-color: rgba(0, 128, 0, 0.2) !important;
+  background-color: rgba(0, 128, 0, 0.1) !important;
+}
+.red__label {
+  border-color: rgba(255, 26, 26, 0.2) !important;
+  background-color: rgba(255, 26, 26, 0.1) !important;
+}

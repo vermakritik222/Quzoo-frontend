@@ -1,7 +1,9 @@
+import { Button } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Question from "../components/Question";
-import "./sass/QuestionPage.css";
+import PublishIcon from "@mui/icons-material/Publish";
+import "./sass/QuestionPage.scss";
 
 function QuestionPage() {
   const [Qdata, setQdata] = useState([]);
@@ -55,7 +57,6 @@ function QuestionPage() {
       .post("http://127.0.0.1:8000/api/v1/questions/postans", data, { headers })
       .then((res) => {
         showResponce(res.data.data, e);
-        // console.log(res.data);
       });
   }
 
@@ -64,77 +65,110 @@ function QuestionPage() {
       for (let j = 0; j < res.doc.length; j++) {
         if (e.target[i].checked && e.target[i].id === res.doc[j].ans) {
           if (res.doc[j].correct__ans) {
-            e.target[i].parentElement.classList.value += " green__label";
+            e.target[i].labels[0].classList.value += " green__label";
           } else {
-            e.target[i].parentElement.classList.value += " red__label";
+            e.target[i].labels[0].classList.value += " red__label";
           }
         }
-        e.target[i].disabled = true;
+        if (e.target[i].type !== "submit") {
+          e.target[i].disabled = true;
+        }
       }
     }
   }
   return (
     <div className="questionPage">
       <form className="questionForm" onSubmit={(e) => Submit(e)} action="">
-        <br />
-        <br />
-        {Qdata?.physics?.phy.map((el) => {
-          return (
-            <Question
-              key={el.question}
-              question={el.question}
-              questionID={el._id}
-              subCod={el.subCod}
-              option1={{ option: el.options[0].option, _id: el.options[0]._id }}
-              option2={{ option: el.options[1].option, _id: el.options[1]._id }}
-              option3={{ option: el.options[2].option, _id: el.options[2]._id }}
-              option4={{ option: el.options[3].option, _id: el.options[3]._id }}
-            />
-          );
-        })}
-        <br />
-        <br />
-        <br />
-        <br />
-        {Qdata?.chemistry?.che.map((el) => {
-          return (
-            <Question
-              key={el.question}
-              subCod={el.subCod}
-              question={el.question}
-              questionID={el._id}
-              option1={{ option: el.options[0].option, _id: el.options[0]._id }}
-              option2={{ option: el.options[1].option, _id: el.options[1]._id }}
-              option3={{ option: el.options[2].option, _id: el.options[2]._id }}
-              option4={{ option: el.options[3].option, _id: el.options[3]._id }}
-            />
-          );
-        })}
-        <br />
-        <br />
-        <br />
-        <br />
-        {Qdata?.maths?.maths.map((el) => {
-          return (
-            <Question
-              key={el.question}
-              question={el.question}
-              questionID={el._id}
-              subCod={el.subCod}
-              option1={{ option: el.options[0].option, _id: el.options[0]._id }}
-              option2={{ option: el.options[1].option, _id: el.options[1]._id }}
-              option3={{ option: el.options[2].option, _id: el.options[2]._id }}
-              option4={{ option: el.options[3].option, _id: el.options[3]._id }}
-            />
-          );
-        })}
-        <br />
-        <br />
-        <button type="submit">Submit</button>
-        <br />
-        <br />
-        <br />
-        <br />
+        <div className="section1">
+          {Qdata?.physics?.phy.map((el) => {
+            return (
+              <Question
+                key={el.question}
+                question={el.question}
+                questionID={el._id}
+                subCod={el.subCod}
+                option1={{
+                  option: el.options[0].option,
+                  _id: el.options[0]._id,
+                }}
+                option2={{
+                  option: el.options[1].option,
+                  _id: el.options[1]._id,
+                }}
+                option3={{
+                  option: el.options[2].option,
+                  _id: el.options[2]._id,
+                }}
+                option4={{
+                  option: el.options[3].option,
+                  _id: el.options[3]._id,
+                }}
+              />
+            );
+          })}
+        </div>
+        <div className="section2">
+          {Qdata?.chemistry?.che.map((el) => {
+            return (
+              <Question
+                key={el.question}
+                subCod={el.subCod}
+                question={el.question}
+                questionID={el._id}
+                option1={{
+                  option: el.options[0].option,
+                  _id: el.options[0]._id,
+                }}
+                option2={{
+                  option: el.options[1].option,
+                  _id: el.options[1]._id,
+                }}
+                option3={{
+                  option: el.options[2].option,
+                  _id: el.options[2]._id,
+                }}
+                option4={{
+                  option: el.options[3].option,
+                  _id: el.options[3]._id,
+                }}
+              />
+            );
+          })}
+        </div>
+        <div className="section3">
+          {Qdata?.maths?.maths.map((el) => {
+            return (
+              <Question
+                key={el.question}
+                question={el.question}
+                questionID={el._id}
+                subCod={el.subCod}
+                option1={{
+                  option: el.options[0].option,
+                  _id: el.options[0]._id,
+                }}
+                option2={{
+                  option: el.options[1].option,
+                  _id: el.options[1]._id,
+                }}
+                option3={{
+                  option: el.options[2].option,
+                  _id: el.options[2]._id,
+                }}
+                option4={{
+                  option: el.options[3].option,
+                  _id: el.options[3]._id,
+                }}
+              />
+            );
+          })}
+        </div>
+
+        <div className="questionForm__submitBtn">
+          <Button type="submit" variant="contained" endIcon={<PublishIcon />}>
+            Submit
+          </Button>
+        </div>
       </form>
     </div>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import "./sass/Question.css";
+import "./sass/Question.scss";
 function Question(prams) {
   const { question, questionID, option1, option2, option3, option4, subCod } =
     prams;
@@ -12,42 +12,53 @@ function Question(prams) {
         id repellendus perspiciatis officiis, accusantium omnis nesciunt!
         Possimus quae quia veritatis?
       </div>
-      <label className="question__optionLabel" htmlFor={option1._id}>
-        <input
-          className=""
-          type="radio"
-          name={`option-${subCod}-${questionID}`}
-          id={option1._id}
-        />
-        {option1.option}
-      </label>
-      <label className="question__optionLabel" htmlFor={option2._id}>
-        <input
-          className=""
-          type="radio"
-          name={`option-${subCod}-${questionID}`}
-          id={option2._id}
-        />
-        {option2.option}
-      </label>
-      <label className="question__optionLabel" htmlFor={option3._id}>
-        <input
-          className=""
-          type="radio"
-          name={`option-${subCod}-${questionID}`}
-          id={option3._id}
-        />
-        {option3.option}
-      </label>
-      <label className="question__optionLabel" htmlFor={option4._id}>
-        <input
-          className=""
-          type="radio"
-          name={`option-${subCod}-${questionID}`}
-          id={option4._id}
-        />
-        {option4.option}
-      </label>
+      <div className="option-wrapper">
+        <div className="">
+          <input
+            className=""
+            type="radio"
+            name={`option-${subCod}-${questionID}`}
+            id={option1._id}
+          />
+          <label className="question__optionLabel" htmlFor={option1._id}>
+            {`(a) ${option1.option}`}
+          </label>
+        </div>
+        <div>
+          <input
+            className=""
+            type="radio"
+            name={`option-${subCod}-${questionID}`}
+            id={option2._id}
+          />
+          <label className="question__optionLabel" htmlFor={option2._id}>
+            {`(b) ${option2.option}`}
+          </label>
+        </div>
+        <div>
+          <input
+            className=""
+            type="radio"
+            name={`option-${subCod}-${questionID}`}
+            id={option3._id}
+          />
+
+          <label className="question__optionLabel" htmlFor={option3._id}>
+            {`(c) ${option3.option}`}
+          </label>
+        </div>
+        <div>
+          <input
+            className=""
+            type="radio"
+            name={`option-${subCod}-${questionID}`}
+            id={option4._id}
+          />
+          <label className="question__optionLabel" htmlFor={option4._id}>
+            {`(d) ${option4.option}`}
+          </label>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,14 +1,3 @@
-.App {
-  display: flex;
-  align-items: center;
-  text-align: center;
-}
-
-.questionForm {
-  width: 60%;
-  margin: auto;
-}
-
 @keyframes App-logo-float {
   0% {
     transform: translateY(0);
