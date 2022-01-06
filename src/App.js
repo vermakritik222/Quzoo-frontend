@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
+import AllQuestionDisplayPage from "./pages/AllQuestionDisplayPage";
 import LoginPage from "./pages/LoginPage";
 import QuestionPage from "./pages/QuestionPage";
 
@@ -12,8 +13,11 @@ function App() {
           <Route path="/login" exact>
             <LoginPage />
           </Route>
-          <Route path="/question">
+          <Route path="/question/:setcode">
             <QuestionPage />
+          </Route>
+          <Route path="/allsets">
+            <AllQuestionDisplayPage />
           </Route>
         </Switch>
       </Router>

@@ -1,3 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.App {
+  background-color: rgb(23, 30, 71);
+}
 @keyframes App-logo-float {
   0% {
     transform: translateY(0);

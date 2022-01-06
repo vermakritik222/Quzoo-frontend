@@ -1,0 +1,78 @@
+@import "../../util/style/components";
+@import "../../util/style/fonts";
+.setCard {
+    width: 16em;
+    height: 20em;
+    margin: 20px;
+    border-radius: 20px;
+    background-color: whitesmoke;
+    box-shadow: 0 0 35px 0 #5b7a96d0;
+    @include flexBox(column);
+    justify-content: space-between;
+    transition: transform 400ms ease-out;
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+.SetCard__imgCover {
+    @include center;
+    margin: 10px;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 10.5rem;
+    @include skeleton;
+    > img {
+        border-radius: 20px;
+        object-fit: cover;
+        height: 10.5rem;
+    }
+}
+.SetCard__content {
+    > .heading {
+        font-family: "Arvo", serif;
+        text-transform: capitalize;
+        margin-left: 20px;
+    }
+    > p {
+        margin-left: 20px;
+        margin-top: 5px;
+    }
+}
+.SetCard__startbtn {
+    @include center;
+    margin-top: 5px;
+    margin-bottom: 18px;
+    > a {
+        padding: 5px 20px;
+        border: 2px solid;
+        border-color: black;
+        width: 40%;
+        text-align: center;
+        font-weight: 700;
+        text-decoration: none;
+        color: black;
+        border-radius: 20px;
+        transition: background 1s ease-in-out;
+        &:hover {
+            color: white;
+            border-color: white;
+            background: linear-gradient(151deg, rgba(20, 165, 151, 1) 5%, rgba(54, 151, 190, 1) 79%);
+        }
+    }
+}
+.skeleton__text {
+    @include skeleton__text;
+    @include skeleton;
+    width: 40% !important;
+    margin-left: 20px;
+}
+.skeleton__text:last-child {
+    width: 30% !important;
+}
+.skeleton__heading {
+    @include skeleton__text;
+    @include skeleton;
+    width: 20% !important;
+    margin-bottom: 15px;
+    height: 0.46em;
+}

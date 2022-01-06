@@ -4,18 +4,23 @@ import React, { useEffect, useState } from "react";
 import Question from "../components/Question";
 import PublishIcon from "@mui/icons-material/Publish";
 import "./sass/QuestionPage.scss";
+import SkeletonQuestion from "../components/SkeletonQuestion";
+import { useParams } from "react-router-dom";
+import requests from "../util/request";
+import Nav from "../components/Nav";
 
 function QuestionPage() {
   const [Qdata, setQdata] = useState([]);
+  const { setcode } = useParams();
   useEffect(() => {
     (() => {
       axios
-        .get("http://127.0.0.1:8000/api/v1/questions/questionpaper/20181")
+        .get(requests.getQuestionPaper.replace("<<SETCODE>>", setcode))
         .then((res) => {
           setQdata(res.data.data);
         });
     })();
-  }, []);
+  }, [setcode]);
 
   function Submit(e) {
     e.preventDefault();
@@ -78,98 +83,125 @@ function QuestionPage() {
   }
   return (
     <div className="questionPage">
-      <form className="questionForm" onSubmit={(e) => Submit(e)} action="">
-        <div className="section1">
-          {Qdata?.physics?.phy.map((el) => {
-            return (
-              <Question
-                key={el.question}
-                question={el.question}
-                questionID={el._id}
-                subCod={el.subCod}
-                option1={{
-                  option: el.options[0].option,
-                  _id: el.options[0]._id,
-                }}
-                option2={{
-                  option: el.options[1].option,
-                  _id: el.options[1]._id,
-                }}
-                option3={{
-                  option: el.options[2].option,
-                  _id: el.options[2]._id,
-                }}
-                option4={{
-                  option: el.options[3].option,
-                  _id: el.options[3]._id,
-                }}
-              />
-            );
-          })}
-        </div>
-        <div className="section2">
-          {Qdata?.chemistry?.che.map((el) => {
-            return (
-              <Question
-                key={el.question}
-                subCod={el.subCod}
-                question={el.question}
-                questionID={el._id}
-                option1={{
-                  option: el.options[0].option,
-                  _id: el.options[0]._id,
-                }}
-                option2={{
-                  option: el.options[1].option,
-                  _id: el.options[1]._id,
-                }}
-                option3={{
-                  option: el.options[2].option,
-                  _id: el.options[2]._id,
-                }}
-                option4={{
-                  option: el.options[3].option,
-                  _id: el.options[3]._id,
-                }}
-              />
-            );
-          })}
-        </div>
-        <div className="section3">
-          {Qdata?.maths?.maths.map((el) => {
-            return (
-              <Question
-                key={el.question}
-                question={el.question}
-                questionID={el._id}
-                subCod={el.subCod}
-                option1={{
-                  option: el.options[0].option,
-                  _id: el.options[0]._id,
-                }}
-                option2={{
-                  option: el.options[1].option,
-                  _id: el.options[1]._id,
-                }}
-                option3={{
-                  option: el.options[2].option,
-                  _id: el.options[2]._id,
-                }}
-                option4={{
-                  option: el.options[3].option,
-                  _id: el.options[3]._id,
-                }}
-              />
-            );
-          })}
-        </div>
+      <Nav />
+      <div className="questionPage__container">
+        <form className="questionForm" onSubmit={(e) => Submit(e)} action="">
+          <div className="section1">
+            {Qdata.length === 0 ? (
+              <div>
+                {" "}
+                <SkeletonQuestion /> <SkeletonQuestion /> <SkeletonQuestion />{" "}
+                <SkeletonQuestion />{" "}
+              </div>
+            ) : (
+              Qdata?.physics?.phy.map((el) => {
+                return (
+                  <Question
+                    key={el.question}
+                    question={el.question}
+                    questionID={el._id}
+                    subCod={el.subCod}
+                    option1={{
+                      option: el.options[0].option,
+                      _id: el.options[0]._id,
+                    }}
+                    option2={{
+                      option: el.options[1].option,
+                      _id: el.options[1]._id,
+                    }}
+                    option3={{
+                      option: el.options[2].option,
+                      _id: el.options[2]._id,
+                    }}
+                    option4={{
+                      option: el.options[3].option,
+                      _id: el.options[3]._id,
+                    }}
+                  />
+                );
+              })
+            )}
+          </div>
+          <div className="section2">
+            {Qdata.length === 0 ? (
+              <div>
+                {" "}
+                <SkeletonQuestion /> <SkeletonQuestion /> <SkeletonQuestion />{" "}
+                <SkeletonQuestion />{" "}
+              </div>
+            ) : (
+              Qdata?.chemistry?.che.map((el) => {
+                return (
+                  <Question
+                    key={el.question}
+                    question={el.question}
+                    questionID={el._id}
+                    subCod={el.subCod}
+                    option1={{
+                      option: el.options[0].option,
+                      _id: el.options[0]._id,
+                    }}
+                    option2={{
+                      option: el.options[1].option,
+                      _id: el.options[1]._id,
+                    }}
+                    option3={{
+                      option: el.options[2].option,
+                      _id: el.options[2]._id,
+                    }}
+                    option4={{
+                      option: el.options[3].option,
+                      _id: el.options[3]._id,
+                    }}
+                  />
+                );
+              })
+            )}
+          </div>
+          <div className="section3">
+            {Qdata.length === 0 ? (
+              <div>
+                {" "}
+                <SkeletonQuestion /> <SkeletonQuestion /> <SkeletonQuestion />{" "}
+                <SkeletonQuestion />{" "}
+              </div>
+            ) : (
+              Qdata?.maths?.maths.map((el) => {
+                return (
+                  <Question
+                    key={el.question}
+                    question={el.question}
+                    questionID={el._id}
+                    subCod={el.subCod}
+                    option1={{
+                      option: el.options[0].option,
+                      _id: el.options[0]._id,
+                    }}
+                    option2={{
+                      option: el.options[1].option,
+                      _id: el.options[1]._id,
+                    }}
+                    option3={{
+                      option: el.options[2].option,
+                      _id: el.options[2]._id,
+                    }}
+                    option4={{
+                      option: el.options[3].option,
+                      _id: el.options[3]._id,
+                    }}
+                  />
+                );
+              })
+            )}
+          </div>
 
-        <div className="questionForm__submitBtn">
-          <Button type="submit" variant="contained" endIcon={<PublishIcon />}>
-            Submit
-          </Button>
-        </div>
-      </form>
+          <div className="questionForm__submitBtn">
+            <Button type="submit" variant="contained" endIcon={<PublishIcon />}>
+              Submit
+            </Button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
