@@ -1,0 +1,98 @@
+@import "../../util/style/components";
+@import "../../util/style/fonts";
+@import "../../util/style/variables";
+
+.dashboard {
+    @include flexBox(row);
+    color: rgb(0, 0, 0);
+    > .dashboard__section1 {
+        background-color: #222437;
+    }
+    > .dashboard__section2 {
+    }
+}
+.dashboard__section1__item {
+    margin: 10px;
+}
+
+.dashboard__section1 {
+    padding: 10px;
+    min-height: 100vh;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    box-sizing: border-box;
+
+    > .dashboard__section1__log {
+        font-weight: 700;
+        text-align: center;
+        font-size: large;
+        color: white;
+    }
+}
+
+.dashboard__section1__container {
+    > .dashboard__section1__item {
+        > .dashboard__section1__item-icon {
+        }
+    }
+}
+.active {
+    background: rgba(56, 162, 248, 0.2);
+    border-radius: 12px;
+}
+.dashboard__section1__icon_cover {
+    @include center;
+    cursor: pointer;
+}
+.dashboard__section1__item-name {
+    opacity: 0;
+    z-index: -1;
+    margin-top: -20px;
+    color: white;
+    text-align: center;
+    transition: all 500ms ease-in-out;
+    cursor: pointer;
+}
+.dashboard__section1__item-icon {
+    border-radius: 15px !important;
+}
+.dashboard__section1__logout {
+    margin-top: 40px;
+}
+
+.dashboard__section1__item:hover .dashboard__section1__item-name,
+.dashboard__section1__logout:hover .dashboard__section1__item-name {
+    opacity: 1;
+    margin-top: 0px;
+}
+
+// SECTION 2
+
+.dashboard__section2 {
+    // SECTION 2 LEFT LIST
+    width: 100%;
+    @include flexBox(row);
+    > .dashboard__section2-left {
+        // background-color: #222437;
+        margin-left: 20px;
+        // overflow-y: scroll;
+        box-sizing: border-box;
+        padding: 0 10px;
+        height: 100vh;
+        > h1 {
+            color: white;
+            text-align: center;
+            text-transform: capitalize;
+            padding-top: 15px;
+        }
+        > .dashboard__section2-left__container {
+            margin-top: 3em;
+        }
+    }
+    > .dashboard__section2-right {
+        width: 100%;
+    }
+}

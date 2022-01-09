@@ -22,7 +22,11 @@ function SetCard(props) {
         )}
       </div>
       <div className="SetCard__startbtn">
-        <a href={link}>Start</a>
+        {skeleton ? (
+          <div className="skeleton__SetCard__startbtn"></div>
+        ) : (
+          <a href={link}>Start</a>
+        )}
       </div>
     </div>
   );

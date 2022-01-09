@@ -8,9 +8,11 @@ import SkeletonQuestion from "../components/SkeletonQuestion";
 import { useParams } from "react-router-dom";
 import requests from "../util/request";
 import Nav from "../components/Nav";
+import ResultCard from "../components/ResultCard";
 
 function QuestionPage() {
   const [Qdata, setQdata] = useState([]);
+  const [ansData, setAnsData] = useState({});
   const { setcode } = useParams();
   useEffect(() => {
     (() => {
@@ -62,6 +64,8 @@ function QuestionPage() {
       .post("http://127.0.0.1:8000/api/v1/questions/postans", data, { headers })
       .then((res) => {
         showResponce(res.data.data, e);
+        setAnsData(res.data.data);
+        console.log(res.data.data);
       });
   }
 
@@ -85,6 +89,58 @@ function QuestionPage() {
     <div className="questionPage">
       <Nav />
       <div className="questionPage__container">
+        <div className="questionPage__resultBlock">
+          {ansData.QuizData ? (
+            <ResultCard
+              total={
+                ansData.QuizData.phyQ_correct * 4 -
+                (ansData.QuizData.total_phyQ - ansData.QuizData.phyQ_correct) +
+                (ansData.QuizData.cheQ_correct * 4 -
+                  (ansData.QuizData.total_cheQ -
+                    ansData.QuizData.cheQ_correct)) +
+                (ansData.QuizData.mathsQ_correct * 4 -
+                  (ansData.QuizData.total_mathsQ -
+                    ansData.QuizData.mathsQ_correct))
+              }
+              totalMarks={ansData.paperInfo.totalMarks || "60"}
+              scored={[
+                {
+                  data:
+                    ansData.QuizData.phyQ_correct * 4 -
+                    (ansData.QuizData.total_phyQ -
+                      ansData.QuizData.phyQ_correct),
+                  positive: ansData.QuizData.phyQ_correct * 4,
+                  label: "physics",
+                  negative:
+                    ansData.QuizData.total_phyQ - ansData.QuizData.phyQ_correct,
+                },
+                {
+                  data:
+                    ansData.QuizData.cheQ_correct * 4 -
+                    (ansData.QuizData.total_cheQ -
+                      ansData.QuizData.cheQ_correct),
+                  positive: ansData.QuizData.cheQ_correct * 4,
+                  label: "Chemistry",
+                  negative:
+                    ansData.QuizData.total_cheQ - ansData.QuizData.cheQ_correct,
+                },
+                {
+                  data:
+                    ansData.QuizData.mathsQ_correct * 4 -
+                    (ansData.QuizData.total_mathsQ -
+                      ansData.QuizData.mathsQ_correct),
+                  positive: ansData.QuizData.mathsQ_correct * 4,
+                  label: "Maths",
+                  negative:
+                    ansData.QuizData.total_mathsQ -
+                    ansData.QuizData.mathsQ_correct,
+                },
+              ]}
+            />
+          ) : (
+            ""
+          )}
+        </div>
         <form className="questionForm" onSubmit={(e) => Submit(e)} action="">
           <div className="section1">
             {Qdata.length === 0 ? (

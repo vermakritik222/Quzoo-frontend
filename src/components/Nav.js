@@ -1,28 +1,31 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./sass/Nav.scss";
 
 function Nav(props) {
-  const { practicePage } = props;
+  const { practicePage, dashboard } = props;
   return (
     <div className="nav">
       <header id="header">
-        <a href="#home" className="logo">
+        <a href="#" className="logo">
           logo
         </a>
         <ul className="nav">
           <li className="item">
-            <a href="sec">home</a>
+            <a href="#">home</a>
           </li>
           <li className="item">
-            <a href="#sec" className={practicePage && "active"}>
+            <a href="#" className={practicePage && "activeNav"}>
               Practice
             </a>
           </li>
           <li className="item">
-            <a href="sec">contact</a>
+            <a href="#">contact</a>
           </li>
           <li className="item">
-            <a href="sec">work</a>
+            <Link to="/Dashboard" className={dashboard && "active"}>
+              Dashboard
+            </Link>
           </li>
         </ul>
       </header>

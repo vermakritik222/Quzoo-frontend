@@ -60,6 +60,13 @@
         }
     }
 }
+.skeleton__SetCard__startbtn {
+    @include skeleton;
+    padding: 5px 20px;
+    width: 40%;
+    height: 25px;
+    border-radius: 20px;
+}
 .skeleton__text {
     @include skeleton__text;
     @include skeleton;

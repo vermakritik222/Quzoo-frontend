@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import AllQuestionDisplayPage from "./pages/AllQuestionDisplayPage";
+import Dashboard from "./pages/Dashboard";
 import LoginPage from "./pages/LoginPage";
 import QuestionPage from "./pages/QuestionPage";
 
@@ -18,6 +19,9 @@ function App() {
           </Route>
           <Route path="/allsets">
             <AllQuestionDisplayPage />
+          </Route>
+          <Route path="/Dashboard">
+            <Dashboard />
           </Route>
         </Switch>
       </Router>

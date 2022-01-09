@@ -1,0 +1,27 @@
+@import "../../util/style/components";
+.dashboardListItem {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 15px;
+    background-color: white;
+    margin: 10px;
+    transition: transform 500ms ease-in-out;
+
+    &:hover {
+        transform: scale(1.06);
+    }
+
+    > .dashboardListItem__name {
+        text-transform: capitalize;
+        margin: 0 15px 0 10px;
+        font-weight: 500;
+    }
+    > .dashboardListItem__datetime {
+        @include center;
+        color: gray;
+    }
+}

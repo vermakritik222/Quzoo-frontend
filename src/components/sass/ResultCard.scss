@@ -1,0 +1,72 @@
+@import "../../util/style/components";
+@import "../../util/style/fonts";
+
+.resultCard {
+    margin: 15px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px;
+
+    position: static;
+}
+.resultCard__container1 {
+    padding: 20px;
+    border-radius: 20px;
+    background-color: whitesmoke;
+
+    > .container1__content {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+        > .container1__heading,
+        > .container1__data {
+            font-family: "Arvo", serif;
+        }
+    }
+    > .container1__graph {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        height: 150px;
+    }
+}
+
+.resultCard__container2 {
+    > .container2__box {
+        background: whitesmoke;
+        padding: 10px;
+        margin: 10px 5px;
+        width: 90%;
+        border-radius: 10px;
+        > .container2__box-heading {
+            text-transform: capitalize;
+            font-family: "Arvo", serif;
+            color: gray;
+            font-size: 0.85rem;
+            margin-bottom: 3px;
+        }
+        > .container2__box_content {
+            display: flex;
+            justify-content: space-between;
+            > .container2__box_content_positive,
+            > .container2__box_content_negative,
+            > .container2__box_content_total {
+                display: flex;
+                align-items: center;
+                font-family: "Arvo", serif;
+                font-weight: 500;
+            }
+            > .container2__box_content_positive {
+                color: green;
+            }
+            > .container2__box_content_negative {
+                color: red;
+            }
+            > .container2__box_content_total {
+                color: rgb(31, 145, 221);
+            }
+        }
+    }
+}
