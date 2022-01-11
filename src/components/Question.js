@@ -1,10 +1,18 @@
 import React from "react";
 import "./sass/Question.scss";
 function Question(prams) {
-  const { question, questionID, option1, option2, option3, option4, subCod } =
-    prams;
+  const {
+    idx,
+    question,
+    questionID,
+    option1,
+    option2,
+    option3,
+    option4,
+    subCod,
+  } = prams;
   return (
-    <div className="question">
+    <div className="question" id={idx}>
       <div className="question__statement">
         <strong>{question}</strong>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore

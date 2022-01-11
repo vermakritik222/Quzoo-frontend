@@ -6,13 +6,31 @@ import {
   SettingsOutlined,
 } from "@mui/icons-material";
 import { Avatar, IconButton } from "@mui/material";
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import DashboardGraph from "../components/DashboardGraph";
 import DashboardListItem from "../components/DashboardListItem";
 import DashboardRadarChart from "../components/DashboardRadarChart";
+import request from "../util/request";
 import "./sass/Dashboard.scss";
 
 function Dashboard() {
+  const [dashData, setDashData] = useState({});
+
+  useEffect(() => {
+    (() => {
+      const headers = {
+        withCredentials: true,
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZGQ4NTY1YzE3Y2MzMjc3OGRmNjA2YyIsImlhdCI6MTY0MTkwNzU1OCwiZXhwIjoxNjQ5NjgzNTU4fQ.gcQRYZT_LUEdsrnJFc_XjhPToF0crfhO4XGt6a7QcvU",
+      };
+      axios.get(request.getDashboardData, { headers }).then((res) => {
+        setDashData(res.data);
+        // console.log(res.data.data);
+      });
+    })();
+  }, []);
+
   return (
     <div className="dashboard">
       <div className="dashboard__section1">
@@ -95,16 +113,25 @@ function Dashboard() {
         <div className="dashboard__section2-left">
           <h1>your work</h1>
           <div className="dashboard__section2-left__container">
-            <DashboardListItem title="practice set 0" date="12/03/2021" />
-            <DashboardListItem title="practice set 1" date="12/03/2021" />
-            <DashboardListItem title="practice set 2" date="12/03/2021" />
-            <DashboardListItem title="practice set 3" date="12/03/2021" />
-            <DashboardListItem title="practice set 4" date="12/03/2021" />
+            {dashData?.data?.paperInfo.map((el) => {
+              return (
+                <DashboardListItem title="practice set 0" date="12/03/2021" />
+              );
+            })}
           </div>
         </div>
         <div className="dashboard__section2-right">
           <div className="dashboard__section2-right__up">
-            <DashboardRadarChart />
+            <DashboardRadarChart
+              che={dashData?.data?.cheTotal}
+              phy={dashData?.data?.phyTotal}
+              maths={dashData?.data?.mathsTotal}
+              total={
+                dashData?.data?.cheTotal +
+                dashData?.data?.phyTotal +
+                dashData?.data?.mathsTotal
+              }
+            />
           </div>
           <div className="dashboard__section2-right__down">
             <DashboardGraph />

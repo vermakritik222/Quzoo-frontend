@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./sass/ResultCard.scss";
 import { Bar } from "react-chartjs-2";
 import { ArrowDownward, ArrowUpward } from "@mui/icons-material";
@@ -17,9 +17,24 @@ function ResultCard(props) {
       },
     ],
   };
+  const [show, handleShow] = useState(false);
 
+  const transitionNavBar = () => {
+    if (window.scrollY > 95) {
+      handleShow(true);
+    } else {
+      handleShow(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", transitionNavBar);
+    return () => {
+      window.removeEventListener("scroll", transitionNavBar);
+    };
+  }, []);
   return (
-    <div className="resultCard">
+    <div className={`resultCard ${show ? "resultCard__show" : ""}`}>
       <div className="resultCard__container1">
         <div className="container1__content">
           <div className="container1__heading">Answers</div>

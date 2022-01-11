@@ -2,13 +2,14 @@ import React from "react";
 import { Radar } from "react-chartjs-2";
 import "./sass/DashboardRadarChart.scss";
 
-function DashboardRadarChart() {
-  const labels = ["chemistry", "physics", "Maths", "total"];
+function DashboardRadarChart(props) {
+  const { che, phy, maths } = props;
+  const labels = ["chemistry", "physics", "Maths"];
   const data = {
     labels,
     datasets: [
       {
-        data: [0, 0, 0, 0],
+        data: [che, phy, maths],
         backgroundColor: "rgba(31, 145, 221, 0.7)",
         borderColor: "rgb(31, 145, 221)",
         pointBorderColor: "#fff",

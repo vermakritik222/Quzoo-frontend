@@ -1,12 +1,17 @@
 @import "../../util/style/components";
+@import "../../util/style/fonts";
 .question {
   margin-bottom: 30px;
   padding: 15px;
   border-radius: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  // background-color: #fff6f6;
   background-color: rgb(255, 255, 255) !important;
 }
 .question__statement {
   font-family: sans-serif;
+  line-height: 1.5rem;
+  font-family: "Merriweather", serif;
   letter-spacing: 0.4px;
   margin-bottom: 15px;
   pointer-events: none;
@@ -27,6 +32,7 @@
   padding: 10px;
   border: 2px solid rgba(172, 170, 170, 0.24);
   margin: 3px 0px;
+  font-family: "Merriweather", serif;
   border-radius: 12px;
 }
 input[type="radio"]:checked ~ label {

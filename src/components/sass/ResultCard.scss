@@ -2,17 +2,21 @@
 @import "../../util/style/fonts";
 
 .resultCard {
-    margin: 15px;
-    background-color: white;
+    background-color: #efe6fd;
+    position: fixed;
+    margin: 15px 2%;
+    top: 6em;
+    transition: all 200ms ease-in-out;
     border-radius: 15px;
     padding: 10px;
-
-    position: static;
+    width: 25%;
+    // position: static;
 }
 .resultCard__container1 {
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
     padding: 20px;
     border-radius: 20px;
-    background-color: whitesmoke;
+    background-color: white;
 
     > .container1__content {
         display: flex;
@@ -34,11 +38,14 @@
 }
 
 .resultCard__container2 {
+    box-sizing: border-box;
     > .container2__box {
-        background: whitesmoke;
+        box-sizing: border-box;
+        box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+        background: white;
         padding: 10px;
-        margin: 10px 5px;
-        width: 90%;
+        margin: 10px 0px;
+        width: 100%;
         border-radius: 10px;
         > .container2__box-heading {
             text-transform: capitalize;
@@ -69,4 +76,7 @@
             }
         }
     }
+}
+.resultCard__show {
+    top: 20px;
 }

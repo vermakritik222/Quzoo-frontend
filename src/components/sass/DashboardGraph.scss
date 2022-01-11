@@ -6,5 +6,8 @@
     // overflow-x: scroll;
     margin: 10px 10px 10px 10px;
     border-radius: 15px;
-    background-color: white;
+    background-color: #2c2f47;
+    > .dashboardGraph__covert {
+        height: 20em;
+    }
 }

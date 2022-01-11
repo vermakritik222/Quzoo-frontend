@@ -1,8 +1,8 @@
 @import "../../util/style/components";
 @import "../../util/style/fonts";
 .setCard {
-    width: 16em;
-    height: 20em;
+    width: 18em;
+    height: 22em;
     margin: 20px;
     border-radius: 20px;
     background-color: whitesmoke;
@@ -24,6 +24,7 @@
     > img {
         border-radius: 20px;
         object-fit: cover;
+        width: 17em;
         height: 10.5rem;
     }
 }
@@ -43,7 +44,7 @@
     margin-top: 5px;
     margin-bottom: 18px;
     > a {
-        padding: 5px 20px;
+        padding: 10px 20px;
         border: 2px solid;
         border-color: black;
         width: 40%;
@@ -51,7 +52,7 @@
         font-weight: 700;
         text-decoration: none;
         color: black;
-        border-radius: 20px;
+        border-radius: 10px;
         transition: background 1s ease-in-out;
         &:hover {
             color: white;
@@ -62,10 +63,10 @@
 }
 .skeleton__SetCard__startbtn {
     @include skeleton;
-    padding: 5px 20px;
+    padding: 10px 20px;
     width: 40%;
     height: 25px;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 .skeleton__text {
     @include skeleton__text;

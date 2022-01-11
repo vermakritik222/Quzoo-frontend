@@ -3,12 +3,26 @@ import { Line } from "react-chartjs-2";
 import "./sass/DashboardGraph.scss";
 
 function DashboardGraph() {
-  const labels = ["chemistry", "physics", "Maths", "total"];
+  const labels = [
+    "1",
+    "2",
+    "2",
+    "2",
+    "2",
+    "2",
+    "2",
+    "2",
+    "2",
+    "2",
+    "2",
+    "2",
+    "2",
+  ];
   const data = {
     labels,
     datasets: [
       {
-        data: [0, 0, 0, 0],
+        data: [22, 24, 43, 25, 34, 42, 23, 45, 21, 43, 67, 56, 24, 21, 42, 12],
         backgroundColor: "rgba(31, 145, 221, 0.7)",
         borderColor: "rgb(31, 145, 221)",
         pointBorderColor: "#fff",
@@ -19,23 +33,25 @@ function DashboardGraph() {
   };
 
   return (
-    <div className="DashboardGraph">
-      <Line
-        height={300}
-        width={300}
-        data={data}
-        options={{
-          plugins: {
-            legend: {
-              display: false,
+    <div className="dashboardGraph">
+      <div className="dashboardGraph__covert">
+        <Line
+          height={80}
+          width={100}
+          data={data}
+          options={{
+            plugins: {
+              legend: {
+                display: false,
+              },
             },
-          },
 
-          responsive: true,
-          maintainAspectRatio: false,
-          indexAxis: "x",
-        }}
-      />
+            responsive: true,
+            maintainAspectRatio: false,
+            indexAxis: "x",
+          }}
+        />
+      </div>
     </div>
   );
 }

@@ -9,6 +9,7 @@ import { useParams } from "react-router-dom";
 import requests from "../util/request";
 import Nav from "../components/Nav";
 import ResultCard from "../components/ResultCard";
+import QuestionMapCard from "../components/QuestionMapCard";
 
 function QuestionPage() {
   const [Qdata, setQdata] = useState([]);
@@ -58,7 +59,7 @@ function QuestionPage() {
     const headers = {
       withCredentials: true,
       Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxY2VjYmQ3Y2RlNTY0ZjcyZGZhMjlhYSIsImlhdCI6MTY0MTExODcyMywiZXhwIjoxNjQ4ODk0NzIzfQ.IpJuxN1xBxWivAOxxa4wdnQgB_QIUgGJrUblgAliqdI",
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZGQ4NTY1YzE3Y2MzMjc3OGRmNjA2YyIsImlhdCI6MTY0MTkwNzU1OCwiZXhwIjoxNjQ5NjgzNTU4fQ.gcQRYZT_LUEdsrnJFc_XjhPToF0crfhO4XGt6a7QcvU",
     };
     axios
       .post("http://127.0.0.1:8000/api/v1/questions/postans", data, { headers })
@@ -138,11 +139,15 @@ function QuestionPage() {
               ]}
             />
           ) : (
-            ""
+            <QuestionMapCard
+              phy={Qdata?.physics?.phy}
+              che={Qdata?.chemistry?.che}
+              maths={Qdata?.maths?.maths}
+            />
           )}
         </div>
         <form className="questionForm" onSubmit={(e) => Submit(e)} action="">
-          <div className="section1">
+          <div className="section1" id="section1-phy">
             {Qdata.length === 0 ? (
               <div>
                 {" "}
@@ -153,6 +158,7 @@ function QuestionPage() {
               Qdata?.physics?.phy.map((el) => {
                 return (
                   <Question
+                    idx={el._id}
                     key={el.question}
                     question={el.question}
                     questionID={el._id}
@@ -178,7 +184,7 @@ function QuestionPage() {
               })
             )}
           </div>
-          <div className="section2">
+          <div className="section2" id="section2-che">
             {Qdata.length === 0 ? (
               <div>
                 {" "}
@@ -189,6 +195,7 @@ function QuestionPage() {
               Qdata?.chemistry?.che.map((el) => {
                 return (
                   <Question
+                    idx={el._id}
                     key={el.question}
                     question={el.question}
                     questionID={el._id}
@@ -214,7 +221,7 @@ function QuestionPage() {
               })
             )}
           </div>
-          <div className="section3">
+          <div className="section3" id="section3-maths">
             {Qdata.length === 0 ? (
               <div>
                 {" "}
@@ -225,6 +232,7 @@ function QuestionPage() {
               Qdata?.maths?.maths.map((el) => {
                 return (
                   <Question
+                    idx={el._id}
                     key={el.question}
                     question={el.question}
                     questionID={el._id}

@@ -14,7 +14,7 @@ header {
 
 .logo {
     text-decoration: none;
-    color: #fff;
+    color: rgb(0, 0, 0);
     text-transform: uppercase;
     font-size: 2em;
     font-weight: 1000;
@@ -34,7 +34,7 @@ header {
 }
 
 .item a {
-    color: #fff;
+    color: rgb(0, 0, 0);
     border-radius: 24px;
     padding: 8px 18px 8px 18px;
     font-size: 1em;
@@ -47,12 +47,12 @@ header {
 
 .item a:hover {
     color: #2b1055;
-    background: #fff;
+    background: rgb(219, 241, 255);
 }
 
 .activeNav {
     color: #2b1055 !important;
-    background: #fff;
+    background: rgb(219, 241, 255);
 }
 
 .bars {
