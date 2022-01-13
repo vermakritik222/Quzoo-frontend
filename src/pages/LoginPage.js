@@ -1,6 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "../pages/sass/LoginPage.scss";
+import DraftsOutlinedIcon from "@mui/icons-material/DraftsOutlined";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import { Button } from "@mui/material";
+import Nav from "../components/Nav";
 
 axios.defaults.withCredentials = true;
 function LoginPage() {
@@ -30,19 +34,47 @@ function LoginPage() {
         console.log(res.data);
       });
 
-    console.log(credentials);
+    // console.log(credentials);
   }
 
   return (
     <div className="loginPage">
-      <div className="loginPage__container">
-        <form className="loginPage__form" onSubmit={(e) => submitLogInForm(e)}>
-          <input type="text" name="token" placeholder="token" id="" />
-          <input type="email" name="email" placeholder="Email" id="" />
-          <input type="text" name="pas" placeholder="Password" id="" />
-          <button type="submit">Log in</button>
-        </form>
-        {/* <p>{token}</p> */}
+      <Nav />
+      <div className="loginPage__cover">
+        <div className="loginPage__container">
+          <h1 className="loginPage__heading">login</h1>
+          <form
+            className="loginPage__form"
+            onSubmit={(e) => submitLogInForm(e)}
+          >
+            <label htmlFor="" className="loginPage__form__labels">
+              <input type="text" name="Token" placeholder="token" id="" />
+            </label>
+
+            <label htmlFor="email" className="loginPage__form__labels">
+              <DraftsOutlinedIcon
+                sx={{ fontSize: 29 }}
+                style={{ color: "#1976d2", cursor: "pointer" }}
+              />
+              <input type="email" name="email" placeholder="Email" id="email" />
+            </label>
+            <label htmlFor="pas" className="loginPage__form__labels">
+              <LockOutlinedIcon
+                sx={{ fontSize: 29 }}
+                style={{ color: "#1976d2", cursor: "pointer" }}
+              />
+              <input type="text" name="pas" placeholder="Password" id="pas" />
+            </label>
+            <Button
+              type="submit"
+              variant="contained"
+              // color="success"
+              style={{ textTransform: "capitalize", width: "91%" }}
+            >
+              Log in
+            </Button>
+          </form>
+        </div>
       </div>
     </div>
   );

@@ -25,7 +25,7 @@ function Question(prams) {
           <input
             className=""
             type="radio"
-            name={`option-${subCod}-${questionID}`}
+            name={`option_${subCod}_${questionID}`}
             id={option1._id}
           />
           <label className="question__optionLabel" htmlFor={option1._id}>
@@ -36,7 +36,7 @@ function Question(prams) {
           <input
             className=""
             type="radio"
-            name={`option-${subCod}-${questionID}`}
+            name={`option_${subCod}_${questionID}`}
             id={option2._id}
           />
           <label className="question__optionLabel" htmlFor={option2._id}>
@@ -47,7 +47,7 @@ function Question(prams) {
           <input
             className=""
             type="radio"
-            name={`option-${subCod}-${questionID}`}
+            name={`option_${subCod}_${questionID}`}
             id={option3._id}
           />
 
@@ -59,7 +59,7 @@ function Question(prams) {
           <input
             className=""
             type="radio"
-            name={`option-${subCod}-${questionID}`}
+            name={`option_${subCod}_${questionID}`}
             id={option4._id}
           />
           <label className="question__optionLabel" htmlFor={option4._id}>

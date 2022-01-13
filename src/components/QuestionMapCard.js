@@ -75,7 +75,7 @@ function QuestionMapCard(props) {
           ) : (
             phy?.map((el) => {
               return (
-                <a href={`#${el._id}`}>
+                <a href={`#${el.qutions_id}`} key={el.qutions_id}>
                   <div>{el.question}</div>
                 </a>
               );
@@ -134,7 +134,7 @@ function QuestionMapCard(props) {
           ) : (
             che?.map((el) => {
               return (
-                <a href={`#${el._id}`}>
+                <a href={`#${el.qutions_id}`} key={el.qutions_id}>
                   <div>{el.question}</div>
                 </a>
               );
@@ -194,7 +194,7 @@ function QuestionMapCard(props) {
           ) : (
             maths?.map((el) => {
               return (
-                <a href={`#${el._id}`}>
+                <a href={`#${el.qutions_id}`} key={el.qutions_id}>
                   <div>{el.question}</div>
                 </a>
               );

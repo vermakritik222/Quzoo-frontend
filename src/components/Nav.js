@@ -8,7 +8,7 @@ function Nav(props) {
     <div className="nav">
       <header id="header">
         <a href="#" className="logo">
-          log0o
+          quzoo
         </a>
         <ul className="nav">
           {!questionsPage && (

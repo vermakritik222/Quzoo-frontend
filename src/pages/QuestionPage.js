@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Question from "../components/Question";
 import PublishIcon from "@mui/icons-material/Publish";
 import "./sass/QuestionPage.scss";
@@ -10,19 +10,49 @@ import requests from "../util/request";
 import Nav from "../components/Nav";
 import ResultCard from "../components/ResultCard";
 import QuestionMapCard from "../components/QuestionMapCard";
-
+const Auth =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZTA0NWM0NzgwMzY1NWQ1NDk0MWZlYiIsImlhdCI6MTY0MjA4Nzg3NywiZXhwIjoxNjQ5ODYzODc3fQ.EVrUT6M07N0O3ZAwVlXvxxKRGge9O1xpEKvUsC44yro";
 function QuestionPage() {
   const [Qdata, setQdata] = useState([]);
   const [ansData, setAnsData] = useState({});
   const { setcode } = useParams();
+  const formref = useRef();
+
   useEffect(() => {
-    (() => {
+    const check = () => {
+      const headers = {
+        withCredentials: true,
+        Authorization: `Bearer ${Auth}`,
+      };
+
+      axios
+        .get(requests.checkInfo.replace("<<SETCODE>>", setcode), { headers })
+        .then((res) => {
+          if (res.data.data.document) {
+            getQuestionPaper(res.data.data.document[0]);
+            // showCheckResponce(formref.current, res.data.data.document[0]);
+            setAnsData(res.data.data.document[0]);
+          } else {
+            getQuestionPaper();
+          }
+        })
+        .catch((el) => {
+          getQuestionPaper();
+        });
+    };
+    check();
+
+    const getQuestionPaper = (check) => {
       axios
         .get(requests.getQuestionPaper.replace("<<SETCODE>>", setcode))
         .then((res) => {
+          // console.log(res.data.data);
           setQdata(res.data.data);
+          if (check) {
+            showCheckResponce(formref.current, check);
+          }
         });
-    })();
+    };
   }, [setcode]);
 
   function Submit(e) {
@@ -31,8 +61,8 @@ function QuestionPage() {
     for (let i = 0; i < e.target.length; i++) {
       if (e.target[i].checked) {
         const temp = {
-          Qid: e.target[i].name.split("-")[2],
-          sub: e.target[i].name.split("-")[1],
+          Qid: e.target[i].name.split("_")[2],
+          sub: e.target[i].name.split("_")[1],
           ans: e.target[i].id,
         };
         map.push(temp);
@@ -41,12 +71,13 @@ function QuestionPage() {
     }
 
     const final = {
-      userID: "null",
       paperInfo: {
-        year: 20181,
+        setcode: setcode,
+        set_id: "61ded226e83b6f330c49ad76",
+        set_title: "practice set 1",
         type: "JEE-mains",
-        attemptedOn: `${new Date()}`,
         full_duration: 3,
+        attemptedOn: `${new Date()}`,
       },
       map,
     };
@@ -58,11 +89,10 @@ function QuestionPage() {
   function postAns(data, e) {
     const headers = {
       withCredentials: true,
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZGQ4NTY1YzE3Y2MzMjc3OGRmNjA2YyIsImlhdCI6MTY0MTkwNzU1OCwiZXhwIjoxNjQ5NjgzNTU4fQ.gcQRYZT_LUEdsrnJFc_XjhPToF0crfhO4XGt6a7QcvU",
+      Authorization: `Bearer ${Auth}`,
     };
     axios
-      .post("http://127.0.0.1:8000/api/v1/questions/postans", data, { headers })
+      .post("http://127.0.0.1:8000/api/v1/user/postAns", data, { headers })
       .then((res) => {
         showResponce(res.data.data, e);
         setAnsData(res.data.data);
@@ -86,6 +116,27 @@ function QuestionPage() {
       }
     }
   }
+
+  const showCheckResponce = (e, data) => {
+    for (let i = 0; i < e.length; i++) {
+      console.log("hello");
+      for (let j = 0; j < data.doc.length; j++) {
+        if (e[i].id === data.doc[j].ans) {
+          if (data.doc[j].correct__ans) {
+            console.log(e[i].id, "green__label");
+            e[i].labels[0].classList.value += " green__label";
+          } else {
+            console.log(e[i].id, "red__label");
+            e[i].labels[0].classList.value += " red__label";
+          }
+        }
+      }
+      // e.target[i].disabled = true;
+    }
+
+    console.log(e[0].id);
+    console.log(data.doc[0].ans);
+  };
   return (
     <div className="questionPage">
       <Nav />
@@ -140,13 +191,18 @@ function QuestionPage() {
             />
           ) : (
             <QuestionMapCard
-              phy={Qdata?.physics?.phy}
-              che={Qdata?.chemistry?.che}
-              maths={Qdata?.maths?.maths}
+              phy={Qdata?.Questions?.PQuestions}
+              che={Qdata?.Questions?.CQuestions}
+              maths={Qdata?.Questions?.MQuestions}
             />
           )}
         </div>
-        <form className="questionForm" onSubmit={(e) => Submit(e)} action="">
+        <form
+          className="questionForm"
+          ref={formref}
+          onSubmit={(e) => Submit(e)}
+          action=""
+        >
           <div className="section1" id="section1-phy">
             {Qdata.length === 0 ? (
               <div>
@@ -155,29 +211,29 @@ function QuestionPage() {
                 <SkeletonQuestion />{" "}
               </div>
             ) : (
-              Qdata?.physics?.phy.map((el) => {
+              Qdata?.Questions?.PQuestions.map((el) => {
                 return (
                   <Question
-                    idx={el._id}
-                    key={el.question}
+                    idx={el.qutions_id}
+                    key={el.qutions_id}
                     question={el.question}
-                    questionID={el._id}
+                    questionID={el.qutions_id}
                     subCod={el.subCod}
                     option1={{
                       option: el.options[0].option,
-                      _id: el.options[0]._id,
+                      _id: el.options[0].option_id,
                     }}
                     option2={{
                       option: el.options[1].option,
-                      _id: el.options[1]._id,
+                      _id: el.options[1].option_id,
                     }}
                     option3={{
                       option: el.options[2].option,
-                      _id: el.options[2]._id,
+                      _id: el.options[2].option_id,
                     }}
                     option4={{
                       option: el.options[3].option,
-                      _id: el.options[3]._id,
+                      _id: el.options[3].option_id,
                     }}
                   />
                 );
@@ -192,29 +248,29 @@ function QuestionPage() {
                 <SkeletonQuestion />{" "}
               </div>
             ) : (
-              Qdata?.chemistry?.che.map((el) => {
+              Qdata?.Questions?.CQuestions.map((el) => {
                 return (
                   <Question
-                    idx={el._id}
-                    key={el.question}
+                    idx={el.qutions_id}
+                    key={el.qutions_id}
                     question={el.question}
-                    questionID={el._id}
+                    questionID={el.qutions_id}
                     subCod={el.subCod}
                     option1={{
                       option: el.options[0].option,
-                      _id: el.options[0]._id,
+                      _id: el.options[0].option_id,
                     }}
                     option2={{
                       option: el.options[1].option,
-                      _id: el.options[1]._id,
+                      _id: el.options[1].option_id,
                     }}
                     option3={{
                       option: el.options[2].option,
-                      _id: el.options[2]._id,
+                      _id: el.options[2].option_id,
                     }}
                     option4={{
                       option: el.options[3].option,
-                      _id: el.options[3]._id,
+                      _id: el.options[3].option_id,
                     }}
                   />
                 );
@@ -229,29 +285,29 @@ function QuestionPage() {
                 <SkeletonQuestion />{" "}
               </div>
             ) : (
-              Qdata?.maths?.maths.map((el) => {
+              Qdata?.Questions?.MQuestions.map((el) => {
                 return (
                   <Question
-                    idx={el._id}
-                    key={el.question}
+                    idx={el.qutions_id}
+                    key={el.qutions_id}
                     question={el.question}
-                    questionID={el._id}
+                    questionID={el.qutions_id}
                     subCod={el.subCod}
                     option1={{
                       option: el.options[0].option,
-                      _id: el.options[0]._id,
+                      _id: el.options[0].option_id,
                     }}
                     option2={{
                       option: el.options[1].option,
-                      _id: el.options[1]._id,
+                      _id: el.options[1].option_id,
                     }}
                     option3={{
                       option: el.options[2].option,
-                      _id: el.options[2]._id,
+                      _id: el.options[2].option_id,
                     }}
                     option4={{
                       option: el.options[3].option,
-                      _id: el.options[3]._id,
+                      _id: el.options[3].option_id,
                     }}
                   />
                 );

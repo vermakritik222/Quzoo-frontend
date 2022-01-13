@@ -40,7 +40,7 @@ function AllQuestionDisplayPage() {
                 key={el._id}
                 img={`/img/${el.SetBackgroundImg}`}
                 title={el.SetTitle}
-                link={`/question/${el.SetID}`}
+                link={`/question/${el.SetYear}`}
                 description={el.SetDescription}
               />
             );
