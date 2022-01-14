@@ -23,8 +23,8 @@ function DashboardGraph() {
     datasets: [
       {
         data: [22, 24, 43, 25, 34, 42, 23, 45, 21, 43, 67, 56, 24, 21, 42, 12],
-        backgroundColor: "rgba(31, 145, 221, 0.7)",
-        borderColor: "rgb(31, 145, 221)",
+        backgroundColor: "rgba(253, 65, 61, 0.5)",
+        borderColor: "rgba(253, 65, 61, 1)",
         pointBorderColor: "#fff",
         pointHoverBackgroundColor: "#fff",
         pointHoverBorderColor: "rgb(54, 162, 235)",

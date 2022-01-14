@@ -1,0 +1,43 @@
+@import "../../util/style/variables";
+@import "../../util/style/components";
+@import "../../util/style/fonts";
+.dashboardCard {
+    @include flexBox(column);
+    justify-content: space-between;
+    background: $Color__Dashboard__main;
+    margin-top: 10px;
+    border-radius: 10px;
+    color: white;
+    margin: 10px 7px;
+    padding: 20px;
+    box-sizing: border-box;
+    > .dashboardCard__heading {
+        text-transform: capitalize;
+        font-size: 1.6rem;
+        font-family: "Merriweather", serif;
+    }
+    > .dashboardCard__box {
+        > .dashboardCard__box1__content1,
+        > .dashboardCard__box1__content2 {
+            padding: 10px 20px;
+            width: 60px;
+            text-align: center;
+            margin: 10px 0;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border-radius: 10px;
+        }
+        > .dashboardCard__box1__content1 {
+            background-color: rgba(0, 255, 0, 0.2);
+            color: rgb(0, 243, 93);
+        }
+        > .dashboardCard__box1__content2 {
+            background-color: rgba(0, 153, 255, 0.219);
+            color: rgb(0, 153, 255);
+        }
+    }
+}
+.dashboardCard__graph {
+    width: 13em;
+    // margin-bottom: 10px;
+}

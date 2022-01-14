@@ -2,11 +2,10 @@
 .questionMapCard {
     position: sticky;
     width: 95%;
-    // position: fixed;
     transition: top 200ms ease-in-out;
     top: 6em;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    // background-color: #f0f9ff;
+    // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     background-color: #f4ecff;
     border: 1px solid rgba(32, 40, 83, 0.1);
     border-radius: 10px;
@@ -42,7 +41,6 @@
                     width: 40px;
                     height: 40px;
                     border-radius: 10px;
-                    // background-color: rgb(88, 167, 219);
                     background-color: #d39dff;
                     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
                 }

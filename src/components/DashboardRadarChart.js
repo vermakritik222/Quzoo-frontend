@@ -4,14 +4,14 @@ import "./sass/DashboardRadarChart.scss";
 
 function DashboardRadarChart(props) {
   const { che, phy, maths } = props;
-  const labels = ["chemistry", "physics", "Maths"];
+  const labels = ["Chemistry", "Physics", "Maths"];
   const data = {
     labels,
     datasets: [
       {
         data: [che, phy, maths],
-        backgroundColor: "rgba(31, 145, 221, 0.7)",
-        borderColor: "rgb(31, 145, 221)",
+        backgroundColor: "rgba(253, 65, 61, 0.5)",
+        borderColor: "rgb(253, 65, 61)",
         pointBorderColor: "#fff",
         pointHoverBackgroundColor: "#fff",
         pointHoverBorderColor: "rgb(54, 162, 235)",

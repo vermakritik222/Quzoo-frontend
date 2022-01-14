@@ -1,0 +1,40 @@
+@import "../../util/style/components";
+.dashboardNav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    box-sizing: border-box;
+    background-color: #272b2e;
+    border-radius: 0px 20px 20px 0px;
+    padding: 10px;
+}
+
+.dashboardNav__logo {
+    text-transform: c;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: rgb(230, 230, 230);
+    text-decoration: none;
+}
+.dashboardNav__ItemList__Item {
+    @include flexBox(column);
+    align-items: center;
+    margin: 5px 0;
+}
+
+.dashboardNav__LogOut {
+    @include flexBox(column);
+    @include flexBox(column);
+    align-items: center;
+    margin-bottom: 30px;
+    > .dashboardNav__LogoutIcon {
+        display: flex;
+        flex-direction: column;
+        > .dashboardNav__LogoutBtn {
+            flex-direction: column;
+            color: whitesmoke;
+        }
+    }
+}

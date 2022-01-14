@@ -1,4 +1,5 @@
 @import "../../util/style/components";
+@import "../../util/style/variables";
 .dashboardListItem {
     width: max-content;
     display: flex;
@@ -7,7 +8,7 @@
     padding: 15px;
     cursor: pointer;
     border-radius: 15px;
-    background-color: white;
+    background-color: $Color__Dashboard__main;
     margin: 10px;
     transition: transform 500ms ease-in-out;
 
