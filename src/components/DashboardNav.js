@@ -36,7 +36,7 @@ function DashboardNav(props) {
 
   return (
     <div className="dashboardNav">
-      <Link href="#" className="dashboardNav__logo">
+      <Link to="#" className="dashboardNav__logo">
         quzoo
       </Link>
       <div className="dashboardNav__ItemList">

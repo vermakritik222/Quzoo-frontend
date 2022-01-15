@@ -4,9 +4,11 @@
   scroll-behavior: smooth;
 }
 .App {
-  background-color: whitesmoke;
+  background-color: #212528;
+  min-height: 100vh;
   /* background-color: #1b1d2e; */
 }
+
 @keyframes App-logo-float {
   0% {
     transform: translateY(0);

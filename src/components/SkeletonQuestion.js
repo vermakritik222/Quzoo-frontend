@@ -12,19 +12,19 @@ function SkeletonQuestion() {
       </div>
       <div className="SkeletonQuestion-wrapper">
         <div className="SkeletonQuestion__optionLabel">
-          <span>(a)</span>
+          <span></span>
           <div className="skeleton skeleton__option"></div>
         </div>
         <div className="SkeletonQuestion__optionLabel">
-          <span>(b)</span>
+          <span></span>
           <div className="skeleton skeleton__option"></div>
         </div>
         <div className="SkeletonQuestion__optionLabel">
-          <span>(c)</span>
+          <span></span>
           <div className="skeleton skeleton__option"></div>
         </div>
         <div className="SkeletonQuestion__optionLabel">
-          <span>(d)</span>
+          <span></span>
           <div className="skeleton skeleton__option"></div>
         </div>
       </div>

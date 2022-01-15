@@ -13,7 +13,7 @@ function ResultCard(props) {
     datasets: [
       {
         data: [scored[0].data, scored[1].data, scored[2].data],
-        backgroundColor: "rgba(31, 145, 221, 0.5)",
+        backgroundColor: "rgba(253, 65, 61, 0.5)",
       },
     ],
   };

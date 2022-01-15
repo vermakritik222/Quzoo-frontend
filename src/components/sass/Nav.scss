@@ -1,4 +1,6 @@
 @import "../../util/style/fonts";
+@import "../../util/style/variables";
+
 header {
     // position: absolute;
     // top: 0;
@@ -14,13 +16,14 @@ header {
 
 .logo {
     text-decoration: none;
-    color: rgb(0, 0, 0);
-    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+    text-transform: capitalize;
     font-size: 2em;
     font-weight: 1000;
 }
 
 .nav {
+    // background: $Colsor_Dashboard_bg;
     position: relative;
     right: 0;
     display: flex;
@@ -34,7 +37,7 @@ header {
 }
 
 .item a {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     border-radius: 24px;
     padding: 8px 18px 8px 18px;
     font-size: 1em;

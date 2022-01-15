@@ -11,7 +11,7 @@ import Nav from "../components/Nav";
 import ResultCard from "../components/ResultCard";
 import QuestionMapCard from "../components/QuestionMapCard";
 const Auth =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZTA0NWM0NzgwMzY1NWQ1NDk0MWZlYiIsImlhdCI6MTY0MjA4Nzg3NywiZXhwIjoxNjQ5ODYzODc3fQ.EVrUT6M07N0O3ZAwVlXvxxKRGge9O1xpEKvUsC44yro";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZTFlZjVjZWU3ODA4NTdmMDJkYWJmYyIsImlhdCI6MTY0MjE5NjgyOSwiZXhwIjoxNjQ5OTcyODI5fQ.FRJp8MUvsPSVnnXbvrb0QRiJ42WUNxzVC744R8gL4iw";
 function QuestionPage() {
   const [Qdata, setQdata] = useState([]);
   const [ansData, setAnsData] = useState({});

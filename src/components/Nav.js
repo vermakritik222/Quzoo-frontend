@@ -14,15 +14,15 @@ function Nav(props) {
           {!questionsPage && (
             <>
               <li className="item">
-                <a href="#">home</a>
+                <Link to="/login">home</Link>
               </li>
               <li className="item">
-                <a href="#" className={practicePage && "activeNav"}>
+                <Link to="/allsets" className={practicePage && "activeNav"}>
                   Practice
-                </a>
+                </Link>
               </li>
               <li className="item">
-                <a href="#">contact</a>
+                <Link to="/question/20181">contact</Link>
               </li>
               <li className="item">
                 <Link to="/Dashboard" className={dashboard && "active"}>

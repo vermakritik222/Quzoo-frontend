@@ -1,12 +1,13 @@
 @import "../../util/style/components";
+@import "../../util/style/variables";
 .questionMapCard {
     position: sticky;
     width: 95%;
     transition: top 200ms ease-in-out;
     top: 6em;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    background-color: #f4ecff;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: $Color_Dashboard_bg;
     border: 1px solid rgba(32, 40, 83, 0.1);
     border-radius: 10px;
     margin: 10px 2%;
@@ -17,7 +18,7 @@
         .questionMapCard__container__heading {
             > a {
                 text-decoration: none;
-                color: rgb(5, 5, 5);
+                color: rgb(226, 226, 226);
                 text-transform: capitalize;
             }
             margin-left: 20px;
@@ -41,8 +42,8 @@
                     width: 40px;
                     height: 40px;
                     border-radius: 10px;
-                    background-color: #d39dff;
-                    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+                    background-color: rgb(22, 47, 71);
+                    box-shadow: rgba(63, 70, 77, 0.2) 0px 8px 24px;
                 }
             }
         }

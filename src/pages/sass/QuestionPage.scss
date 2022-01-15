@@ -1,4 +1,8 @@
 @import "../../util/style/components";
+@import "../../util/style/variables";
+.questionPage {
+    background: $Color_Dashboard_bg;
+}
 .questionPage__container {
     padding: 5px;
     display: flex;

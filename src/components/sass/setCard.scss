@@ -1,12 +1,14 @@
 @import "../../util/style/components";
 @import "../../util/style/fonts";
+@import "../../util/style/variables";
+
 .setCard {
     width: 18em;
     height: 22em;
     margin: 20px;
     border-radius: 20px;
-    background-color: whitesmoke;
-    box-shadow: 0 0 35px 0 #5b7a96d0;
+    background-color: $Color__Dashboard__main;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     @include flexBox(column);
     justify-content: space-between;
     transition: transform 400ms ease-out;
@@ -30,11 +32,13 @@
 }
 .SetCard__content {
     > .heading {
+        color: white;
         font-family: "Arvo", serif;
         text-transform: capitalize;
         margin-left: 20px;
     }
     > p {
+        color: white;
         margin-left: 20px;
         margin-top: 5px;
     }
@@ -46,17 +50,17 @@
     > a {
         padding: 10px 20px;
         border: 2px solid;
-        border-color: black;
+        border-color: rgba(0, 0, 0, 0.5);
         width: 40%;
         text-align: center;
         font-weight: 700;
         text-decoration: none;
-        color: black;
+        color: rgb(221, 221, 221);
         border-radius: 10px;
         transition: background 1s ease-in-out;
         &:hover {
             color: white;
-            border-color: white;
+            border-color: rgba(248, 248, 248, 0);
             background: linear-gradient(151deg, rgba(20, 165, 151, 1) 5%, rgba(54, 151, 190, 1) 79%);
         }
     }
