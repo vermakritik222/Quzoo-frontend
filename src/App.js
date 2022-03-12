@@ -1,32 +1,85 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useSelector } from "react-redux";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import "./App.css";
 import AllQuestionDisplayPage from "./pages/AllQuestionDisplayPage";
 import Dashboard from "./pages/Dashboard";
 import LoginPage from "./pages/LoginPage";
 import QuestionPage from "./pages/QuestionPage";
 
+// const isAuth = false;
+
 function App() {
   return (
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/login" exact>
+          <GuestRoute path="/login">
             <LoginPage />
-          </Route>
-          <Route path="/question/:setcode">
-            <QuestionPage />
-          </Route>
-          <Route path="/allsets">
+          </GuestRoute>
+
+          <ProtectedRoute path="/allsets">
             <AllQuestionDisplayPage />
-          </Route>
-          <Route path="/Dashboard">
+          </ProtectedRoute>
+
+          <ProtectedRoute path="/question/:setcode">
+            <QuestionPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute path="/Dashboard">
             <Dashboard />
-          </Route>
+          </ProtectedRoute>
         </Switch>
       </Router>
     </div>
   );
 }
+
+const GuestRoute = ({ children, ...rest }) => {
+  const { isAuth } = useSelector((state) => state.authSlice);
+  return (
+    <Route
+      {...rest}
+      render={({ location }) => {
+        return isAuth ? (
+          <Redirect
+            to={{
+              pathname: "/allsets",
+              state: { from: location },
+            }}
+          />
+        ) : (
+          children
+        );
+      }}
+    ></Route>
+  );
+};
+
+const ProtectedRoute = ({ children, ...rest }) => {
+  const { isAuth } = useSelector((state) => state.authSlice);
+  return (
+    <Route
+      {...rest}
+      render={({ location }) => {
+        return !isAuth ? (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: location },
+            }}
+          />
+        ) : (
+          children
+        );
+      }}
+    ></Route>
+  );
+};
 
 export default App;

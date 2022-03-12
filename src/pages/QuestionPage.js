@@ -10,8 +10,8 @@ import requests from "../util/request";
 import Nav from "../components/Nav";
 import ResultCard from "../components/ResultCard";
 import QuestionMapCard from "../components/QuestionMapCard";
-const Auth =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZTFlZjVjZWU3ODA4NTdmMDJkYWJmYyIsImlhdCI6MTY0MjE5NjgyOSwiZXhwIjoxNjQ5OTcyODI5fQ.FRJp8MUvsPSVnnXbvrb0QRiJ42WUNxzVC744R8gL4iw";
+// const Auth =
+//   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZTFlZjVjZWU3ODA4NTdmMDJkYWJmYyIsImlhdCI6MTY0MjE5NjgyOSwiZXhwIjoxNjQ5OTcyODI5fQ.FRJp8MUvsPSVnnXbvrb0QRiJ42WUNxzVC744R8gL4iw";
 function QuestionPage() {
   const [Qdata, setQdata] = useState([]);
   const [ansData, setAnsData] = useState({});
@@ -22,7 +22,7 @@ function QuestionPage() {
     const check = () => {
       const headers = {
         withCredentials: true,
-        Authorization: `Bearer ${Auth}`,
+        // Authorization: `Bearer ${Auth}`,
       };
 
       axios
@@ -89,7 +89,7 @@ function QuestionPage() {
   function postAns(data, e) {
     const headers = {
       withCredentials: true,
-      Authorization: `Bearer ${Auth}`,
+      // Authorization: `Bearer ${Auth}`,
     };
     axios
       .post("http://127.0.0.1:8000/api/v1/user/postAns", data, { headers })

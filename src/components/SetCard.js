@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./sass/setCard.scss";
 
 function SetCard(props) {
@@ -25,7 +26,7 @@ function SetCard(props) {
         {skeleton ? (
           <div className="skeleton__SetCard__startbtn"></div>
         ) : (
-          <a href={link}>Start</a>
+          <Link to={link}>Start</Link>
         )}
       </div>
     </div>

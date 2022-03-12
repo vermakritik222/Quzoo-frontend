@@ -8,8 +8,8 @@ import request from "../util/request";
 import "./sass/Dashboard.scss";
 import DashboardCard from "../components/DashboardCard";
 import { Link } from "react-router-dom";
-const Auth =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZTFlZjVjZWU3ODA4NTdmMDJkYWJmYyIsImlhdCI6MTY0MjE5NjgyOSwiZXhwIjoxNjQ5OTcyODI5fQ.FRJp8MUvsPSVnnXbvrb0QRiJ42WUNxzVC744R8gL4iw";
+// const Auth =
+//   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZTFlZjVjZWU3ODA4NTdmMDJkYWJmYyIsImlhdCI6MTY0MjE5NjgyOSwiZXhwIjoxNjQ5OTcyODI5fQ.FRJp8MUvsPSVnnXbvrb0QRiJ42WUNxzVC744R8gL4iw";
 
 function Dashboard() {
   const [data, setData] = useState();
@@ -20,7 +20,7 @@ function Dashboard() {
     (() => {
       const headers = {
         withCredentials: true,
-        Authorization: `Bearer ${Auth}`,
+        // Authorization: `Bearer ${Auth}`,
       };
 
       axios.get(request.getDashboardData, { headers }).then((res) => {
