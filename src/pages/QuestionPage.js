@@ -1,17 +1,16 @@
-import { Button } from "@mui/material";
-import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
-import Question from "../components/Question";
-import PublishIcon from "@mui/icons-material/Publish";
-import "./sass/QuestionPage.scss";
-import SkeletonQuestion from "../components/SkeletonQuestion";
 import { useParams } from "react-router-dom";
-import requests from "../util/request";
+import axios from "../http/axios";
+import { Button } from "@mui/material";
+import PublishIcon from "@mui/icons-material/Publish";
+import Question from "../components/Question";
+import SkeletonQuestion from "../components/SkeletonQuestion";
 import Nav from "../components/Nav";
 import ResultCard from "../components/ResultCard";
 import QuestionMapCard from "../components/QuestionMapCard";
-// const Auth =
-//   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZTFlZjVjZWU3ODA4NTdmMDJkYWJmYyIsImlhdCI6MTY0MjE5NjgyOSwiZXhwIjoxNjQ5OTcyODI5fQ.FRJp8MUvsPSVnnXbvrb0QRiJ42WUNxzVC744R8gL4iw";
+import requests from "../util/request";
+import "./sass/QuestionPage.scss";
+
 function QuestionPage() {
   const [Qdata, setQdata] = useState([]);
   const [ansData, setAnsData] = useState({});
@@ -20,17 +19,16 @@ function QuestionPage() {
 
   useEffect(() => {
     const check = () => {
-      const headers = {
-        withCredentials: true,
-        // Authorization: `Bearer ${Auth}`,
-      };
+      // const headers = {
+      //   withCredentials: true,
+      //   // Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZTFlZjVjZWU3ODA4NTdmMDJkYWJmYyIsImlhdCI6MTY0MjE5NjgyOSwiZXhwIjoxNjQ5OTcyODI5fQ.FRJp8MUvsPSVnnXbvrb0QRiJ42WUNxzVC744R8gL4iw`,
+      // };
 
       axios
-        .get(requests.checkInfo.replace("<<SETCODE>>", setcode), { headers })
+        .get(requests.checkInfo.replace("<<SETCODE>>", setcode))
         .then((res) => {
           if (res.data.data.document) {
             getQuestionPaper(res.data.data.document[0]);
-            // showCheckResponce(formref.current, res.data.data.document[0]);
             setAnsData(res.data.data.document[0]);
           } else {
             getQuestionPaper();
@@ -82,21 +80,21 @@ function QuestionPage() {
       map,
     };
 
-    console.log(final);
+    // console.log(final);
     postAns(final, e);
   }
 
   function postAns(data, e) {
-    const headers = {
-      withCredentials: true,
-      // Authorization: `Bearer ${Auth}`,
-    };
+    // const headers = {
+    //   withCredentials: true,
+    //   // Authorization: `Bearer ${Auth}`,
+    // };
     axios
-      .post("http://127.0.0.1:8000/api/v1/user/postAns", data, { headers })
+      .post("http://127.0.0.1:8000/api/v1/user/postAns", data)
       .then((res) => {
         showResponce(res.data.data, e);
         setAnsData(res.data.data);
-        console.log(res.data.data);
+        // console.log(res.data.data);
       });
   }
 
@@ -119,14 +117,11 @@ function QuestionPage() {
 
   const showCheckResponce = (e, data) => {
     for (let i = 0; i < e.length; i++) {
-      console.log("hello");
       for (let j = 0; j < data.doc.length; j++) {
         if (e[i].id === data.doc[j].ans) {
           if (data.doc[j].correct__ans) {
-            console.log(e[i].id, "green__label");
             e[i].labels[0].classList.value += " green__label";
           } else {
-            console.log(e[i].id, "red__label");
             e[i].labels[0].classList.value += " red__label";
           }
         }
@@ -134,8 +129,8 @@ function QuestionPage() {
       // e.target[i].disabled = true;
     }
 
-    console.log(e[0].id);
-    console.log(data.doc[0].ans);
+    // console.log(e[0].id);
+    // console.log(data.doc[0].ans);
   };
   return (
     <div className="questionPage">

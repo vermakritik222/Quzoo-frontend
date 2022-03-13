@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,6 +11,9 @@ import AllQuestionDisplayPage from "./pages/AllQuestionDisplayPage";
 import Dashboard from "./pages/Dashboard";
 import LoginPage from "./pages/LoginPage";
 import QuestionPage from "./pages/QuestionPage";
+import requests from "./util/request";
+import axios from "./http/axios";
+import { setAuth } from "./features/authSlice";
 
 // const isAuth = false;
 
@@ -63,6 +66,14 @@ const GuestRoute = ({ children, ...rest }) => {
 
 const ProtectedRoute = ({ children, ...rest }) => {
   const { isAuth } = useSelector((state) => state.authSlice);
+  const dispatch = useDispatch();
+  axios.get(requests.verifyOnLode).then((res) => {
+    console.log(res.data);
+    if (res.data.user) {
+      dispatch(setAuth(res.data));
+    }
+  });
+
   return (
     <Route
       {...rest}

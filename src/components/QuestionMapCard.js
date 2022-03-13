@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./sass/QuestionMapCard.scss";
 
 function QuestionMapCard(props) {
@@ -29,48 +30,48 @@ function QuestionMapCard(props) {
         <div className="questionMapCard__container-sec1">
           {phy === undefined ? (
             <>
-              <a href={`#`}>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
+              </Link>
             </>
           ) : (
             phy?.map((el) => {
@@ -83,53 +84,53 @@ function QuestionMapCard(props) {
           )}
         </div>
         <h3 className="questionMapCard__container__heading">
-          <a href="#section2-che">chemistry</a>{" "}
+          <a heref="#section2-che">chemistry</a>{" "}
         </h3>
         <div className="questionMapCard__container-sec2">
           {che === undefined ? (
             <>
-              <a href={`#`}>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
+              </Link>
             </>
           ) : (
             che?.map((el) => {
@@ -148,48 +149,48 @@ function QuestionMapCard(props) {
         <div className="questionMapCard__container-sec3">
           {maths === undefined ? (
             <>
-              <a href={`#`}>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
-              <a href={`#`}>
+              </Link>
+              <Link to={`#`}>
                 <div className="questionMapCard__container__skeleton"></div>
-              </a>
+              </Link>
             </>
           ) : (
             maths?.map((el) => {

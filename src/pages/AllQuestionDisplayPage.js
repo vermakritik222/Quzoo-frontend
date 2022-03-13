@@ -1,18 +1,19 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
+import axios from "../http/axios";
 import Nav from "../components/Nav";
 import SetCard from "../components/SetCard";
-import "./sass/AllQuestionDisplayPage.scss";
 import requests from "../util/request";
+import "./sass/AllQuestionDisplayPage.scss";
+
 function AllQuestionDisplayPage() {
   const [data, setData] = useState([]);
   useEffect(() => {
-    const headers = {
-      withCredentials: true,
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxY2VjYmQ3Y2RlNTY0ZjcyZGZhMjlhYSIsImlhdCI6MTY0MTExODcyMywiZXhwIjoxNjQ4ODk0NzIzfQ.IpJuxN1xBxWivAOxxa4wdnQgB_QIUgGJrUblgAliqdI",
-    };
-    axios.get(requests.allSets, { headers }).then((res) => {
+    // const headers = {
+    //   withCredentials: true,
+    //   Authorization:
+    //     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxY2VjYmQ3Y2RlNTY0ZjcyZGZhMjlhYSIsImlhdCI6MTY0MTExODcyMywiZXhwIjoxNjQ4ODk0NzIzfQ.IpJuxN1xBxWivAOxxa4wdnQgB_QIUgGJrUblgAliqdI",
+    // };
+    axios.get(requests.allSets).then((res) => {
       console.log(res.data.data);
       setData(res.data.data);
     });

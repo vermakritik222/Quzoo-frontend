@@ -1,5 +1,6 @@
 import React from "react";
 import "./sass/Question.scss";
+
 function Question(prams) {
   const {
     idx,

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import "./sass/ResultCard.scss";
 import { Bar } from "react-chartjs-2";
-import { ArrowDownward, ArrowUpward } from "@mui/icons-material";
 import { red } from "@mui/material/colors";
+import { ArrowDownward, ArrowUpward } from "@mui/icons-material";
+import "./sass/ResultCard.scss";
 
 function ResultCard(props) {
   const { scored, total, totalMarks } = props;

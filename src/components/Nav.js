@@ -7,9 +7,9 @@ function Nav(props) {
   return (
     <div className="nav">
       <header id="header">
-        <a href="#" className="logo">
+        <Link to="#" className="logo">
           quzoo
-        </a>
+        </Link>
         <ul className="nav">
           {!questionsPage && (
             <>

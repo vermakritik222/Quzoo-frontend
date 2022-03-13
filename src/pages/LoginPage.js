@@ -1,24 +1,36 @@
-import axios from "axios";
 import React, { useState } from "react";
-import "../pages/sass/LoginPage.scss";
+import { useDispatch } from "react-redux";
+import axios from "../http/axios";
 import DraftsOutlinedIcon from "@mui/icons-material/DraftsOutlined";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { Button } from "@mui/material";
-import { setAuth } from "../features/authSlice";
-import { useDispatch } from "react-redux";
 import Nav from "../components/Nav";
+import { setAuth } from "../features/authSlice";
+import requests from "../util/request";
+import "../pages/sass/LoginPage.scss";
 
-axios.defaults.withCredentials = true;
 function LoginPage() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const dispatch = useDispatch();
 
+  // useEffect(() => {
+  //   const onLode = async () => {
+  //     const res = await axios.get(requests.verifyOnLode);
+  //     console.log(res.data);
+  //     if (res.data.user) {
+  //       dispatch(setAuth(res.data));
+  //     }
+  //   };
+
+  //   onLode();
+  // }, [dispatch]);
+
   const submitLogInForm = async (e) => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://127.0.0.1:8000/api/v1/user/login", {
+      const res = await axios.post(requests.login, {
         email,
         password,
       });

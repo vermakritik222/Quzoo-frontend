@@ -1,5 +1,5 @@
 import React from "react";
-import "./sass/DashboardNav.scss";
+import { Link } from "react-router-dom";
 import {
   AccountCircleOutlined,
   DashboardOutlined,
@@ -8,9 +8,7 @@ import {
   SettingsOutlined,
 } from "@mui/icons-material";
 import ButtonBase from "@mui/material/ButtonBase";
-// import { CustomButton } from "@mui/base";
-import { Avatar, IconButton } from "@mui/material";
-import { Link } from "react-router-dom";
+import "./sass/DashboardNav.scss";
 
 function DashboardNav(props) {
   const BtnStyle = {
