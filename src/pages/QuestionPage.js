@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import axios from "../http/axios";
 import { Button } from "@mui/material";
@@ -9,9 +10,12 @@ import Nav from "../components/Nav";
 import ResultCard from "../components/ResultCard";
 import QuestionMapCard from "../components/QuestionMapCard";
 import requests from "../util/request";
+import { setQuestion } from "../features/questionSlice";
 import "./sass/QuestionPage.scss";
 
 function QuestionPage() {
+  const dispatch = useDispatch();
+  const { metadata, id } = useSelector((state) => state.questionSlice);
   const [Qdata, setQdata] = useState([]);
   const [ansData, setAnsData] = useState({});
   const { setcode } = useParams();
@@ -44,8 +48,9 @@ function QuestionPage() {
       axios
         .get(requests.getQuestionPaper.replace("<<SETCODE>>", setcode))
         .then((res) => {
-          // console.log(res.data.data);
+          console.log(res.data.data);
           setQdata(res.data.data);
+          dispatch(setQuestion(res.data.data));
           if (check) {
             showCheckResponce(formref.current, check);
           }
@@ -71,10 +76,10 @@ function QuestionPage() {
     const final = {
       paperInfo: {
         setcode: setcode,
-        set_id: "61ded226e83b6f330c49ad76",
-        set_title: "practice set 1",
-        type: "JEE-mains",
-        full_duration: 3,
+        set_id: id,
+        set_title: metadata.SetTitle,
+        type: metadata.SetDescription,
+        full_duration: metadata.SetDuration,
         attemptedOn: `${new Date()}`,
       },
       map,
@@ -149,7 +154,7 @@ function QuestionPage() {
                   (ansData.QuizData.total_mathsQ -
                     ansData.QuizData.mathsQ_correct))
               }
-              totalMarks={ansData.paperInfo.totalMarks || "60"}
+              totalMarks={metadata?.SetTotalMarks || "60"}
               scored={[
                 {
                   data:
