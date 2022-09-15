@@ -26,6 +26,10 @@ function App() {
             <LoginPage />
           </GuestRoute>
 
+          <ProtectedRoute exact path="/">
+            <></>
+          </ProtectedRoute>
+
           <ProtectedRoute path="/allsets">
             <AllQuestionDisplayPage />
           </ProtectedRoute>
