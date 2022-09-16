@@ -1,9 +1,11 @@
 @import "../../util/style/components";
+@import "../../util/style/variables";
 
 .loginPage {
     min-height: 100vh;
     min-width: 100vw;
-    background-color: #212528;
+    // background-color: #212528;
+    background-color: $Color_MainBg;
 }
 
 .loginPage__cover {
@@ -13,10 +15,11 @@
         padding: 20px;
         box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
         border-radius: 20px;
-        background-color: #272b2e;
+        background-color: $Color_Whitesmoke;
         > .loginPage__heading {
             text-align: center;
-            color: whitesmoke;
+            // color: whitesmoke;
+            color: #272b2e;
             margin-bottom: 30px;
             text-transform: uppercase;
             text-transform: capitalize;

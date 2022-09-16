@@ -4,7 +4,8 @@
   scroll-behavior: smooth;
 }
 .App {
-  background-color: #212528;
+  /* background-color: #212528; */
+  background-color: #eeeef3;
   min-height: 100vh;
   /* background-color: #1b1d2e; */
 }

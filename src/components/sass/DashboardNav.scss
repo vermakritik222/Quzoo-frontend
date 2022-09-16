@@ -1,4 +1,6 @@
 @import "../../util/style/components";
+@import "../../util/style/variables";
+
 .dashboardNav {
     display: flex;
     flex-direction: column;
@@ -6,7 +8,8 @@
     justify-content: space-between;
     height: 100vh;
     box-sizing: border-box;
-    background-color: #272b2e;
+    // background-color: #272b2e;
+    background-color: $Color_Whitesmoke;
     border-radius: 0px 20px 20px 0px;
     padding: 10px;
 }
@@ -15,7 +18,8 @@
     text-transform: c;
     font-weight: 700;
     font-size: 1.5rem;
-    color: rgb(230, 230, 230);
+    color: $Color_Text;
+    // color: rgb(230, 230, 230);
     text-decoration: none;
 }
 .dashboardNav__ItemList__Item {
@@ -34,7 +38,7 @@
         flex-direction: column;
         > .dashboardNav__LogoutBtn {
             flex-direction: column;
-            color: whitesmoke;
+            color: $Color_Text;
         }
     }
 }

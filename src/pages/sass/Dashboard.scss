@@ -3,7 +3,7 @@
 @import "../../util/style/variables";
 
 .dashboard {
-    background: $Color_Dashboard_bg;
+    background: $Color_MainBg;
     @include flexBox(row);
     > .dashboard__container {
         @include flexBox(row);
@@ -18,7 +18,8 @@
                 }
             }
             > .dashboard__sec__paperlist {
-                color: rgb(235, 235, 235);
+                // color: rgb(235, 235, 235);
+                color: $Color_Text;
                 margin-left: 20px;
                 > h1 {
                     margin-top: 10px;
@@ -27,7 +28,8 @@
                 > .dashboard__sec__paperlist__container {
                     > a {
                         text-decoration: none;
-                        color: rgb(219, 219, 219);
+                        // color: rgb(219, 219, 219);
+                        color: $Color_Text;
                     }
                     margin-top: 30px;
                 }

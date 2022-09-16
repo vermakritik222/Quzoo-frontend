@@ -1,13 +1,15 @@
 @import "../../util/style/variables";
 @import "../../util/style/components";
 @import "../../util/style/fonts";
+
 .dashboardCard {
     @include flexBox(column);
     justify-content: space-between;
-    background: $Color__Dashboard__main;
+    background: $Color_Whitesmoke;
     margin-top: 10px;
     border-radius: 10px;
-    color: white;
+    // color: white;
+    color: $Color_Text;
     margin: 10px 7px;
     padding: 20px;
     box-sizing: border-box;
@@ -29,11 +31,11 @@
         }
         > .dashboardCard__box1__content1 {
             background-color: rgba(0, 255, 0, 0.2);
-            color: rgb(0, 243, 93);
+            color: rgb(3, 149, 59);
         }
         > .dashboardCard__box1__content2 {
-            background-color: rgba(0, 153, 255, 0.219);
-            color: rgb(0, 153, 255);
+            background-color: rgba(0, 153, 255, 0.2);
+            color: rgb(1, 110, 182);
         }
     }
 }

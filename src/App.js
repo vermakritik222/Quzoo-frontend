@@ -71,12 +71,14 @@ const GuestRoute = ({ children, ...rest }) => {
 const ProtectedRoute = ({ children, ...rest }) => {
   const { isAuth } = useSelector((state) => state.authSlice);
   const dispatch = useDispatch();
-  axios.get(requests.verifyOnLode).then((res) => {
-    console.log(res.data);
-    if (res.data.user) {
-      dispatch(setAuth(res.data));
-    }
-  });
+  if (!isAuth) {
+    axios.get(requests.verifyOnLode).then((res) => {
+      console.log(res.data);
+      if (res.data.user) {
+        dispatch(setAuth(res.data));
+      }
+    });
+  }
 
   return (
     <Route

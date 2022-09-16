@@ -3,9 +3,10 @@
 
 .SkeletonQuestion {
     margin-bottom: 30px;
-    padding: 10px;
+    padding: 20px 10px;
     border-radius: 20px;
-    background-color: $Color__Dashboard__main !important;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: $Color_MainBg !important;
 }
 .SkeletonQuestion__statement {
     margin-bottom: 15px;

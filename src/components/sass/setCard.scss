@@ -7,7 +7,7 @@
     height: 22em;
     margin: 20px;
     border-radius: 20px;
-    background-color: $Color__Dashboard__main;
+    background-color: $Color_Whitesmoke;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     @include flexBox(column);
     justify-content: space-between;
@@ -32,13 +32,13 @@
 }
 .SetCard__content {
     > .heading {
-        color: white;
+        color: $Color_Text;
         font-family: "Arvo", serif;
         text-transform: capitalize;
         margin-left: 20px;
     }
     > p {
-        color: white;
+        color: $Color_Text;
         margin-left: 20px;
         margin-top: 5px;
     }
@@ -55,7 +55,8 @@
         text-align: center;
         font-weight: 700;
         text-decoration: none;
-        color: rgb(221, 221, 221);
+        // color: rgb(221, 221, 221);
+        color: $Color_Text;
         border-radius: 10px;
         transition: background 1s ease-in-out;
         &:hover {

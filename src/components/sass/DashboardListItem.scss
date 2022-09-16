@@ -1,5 +1,6 @@
 @import "../../util/style/components";
 @import "../../util/style/variables";
+
 .dashboardListItem {
     width: max-content;
     display: flex;
@@ -8,7 +9,7 @@
     padding: 15px;
     cursor: pointer;
     border-radius: 15px;
-    background-color: $Color__Dashboard__main;
+    background-color: $Color_Whitesmoke;
     margin: 10px;
     transition: transform 500ms ease-in-out;
 
@@ -20,6 +21,7 @@
         text-transform: capitalize;
         margin: 0 15px 0 10px;
         font-weight: 500;
+        color: $Color_Text;
     }
     > .dashboardListItem__datetime {
         @include center;

@@ -4,16 +4,17 @@
 
 .question {
   margin-bottom: 30px;
-  padding: 15px;
+  padding: 20px;
   border-radius: 20px;
   // box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  background: $Color__Dashboard__main !important;
+  background: $Color_Whitesmoke !important;
 }
 .question__statement {
   font-family: sans-serif;
   line-height: 1.5rem;
-  color: white;
+  // color: white;
+  color: $Color_Text;
   font-family: "Merriweather", serif;
   letter-spacing: 0.4px;
   margin-bottom: 15px;
@@ -37,7 +38,8 @@
   margin: 3px 0px;
   font-family: "Merriweather", serif;
   border-radius: 12px;
-  color: white;
+  // color: white;
+  color: $Color_Text;
 }
 input[type="radio"]:checked ~ label {
   border-color: #0073f763;

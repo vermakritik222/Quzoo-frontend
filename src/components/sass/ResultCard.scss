@@ -4,7 +4,7 @@
 
 .resultCard {
     // background-color: #3a1e6b;
-    background-color: $Color_Dashboard_bg;
+    background-color: $Color_Whitesmoke;
     position: fixed;
     margin: 15px 2%;
     top: 6em;
@@ -12,13 +12,14 @@
     border-radius: 15px;
     padding: 10px;
     width: 25%;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
     // position: static;
 }
 .resultCard__container1 {
-    box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+    // box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
     padding: 20px;
     border-radius: 20px;
-    background-color: $Color__Dashboard__main;
+    background-color: $Color_Whitesmoke;
 
     > .container1__content {
         display: flex;
@@ -26,7 +27,8 @@
         margin-bottom: 5px;
         > .container1__heading,
         > .container1__data {
-            color: rgb(231, 231, 231);
+            // color: rgb(231, 231, 231);
+            color: $Color_Text;
             font-family: "Arvo", serif;
         }
     }
@@ -44,8 +46,8 @@
     box-sizing: border-box;
     > .container2__box {
         box-sizing: border-box;
-        box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
-        background: $Color__Dashboard__main;
+        // box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+        background: $Color_Whitesmoke;
         padding: 10px;
         margin: 10px 0px;
         width: 100%;
@@ -53,7 +55,8 @@
         > .container2__box-heading {
             text-transform: capitalize;
             font-family: "Arvo", serif;
-            color: rgb(218, 218, 218);
+            color: $Color_Text;
+            // color: rgb(218, 218, 218);
             font-size: 0.85rem;
             margin-bottom: 3px;
         }

@@ -16,7 +16,8 @@ header {
 
 .logo {
     text-decoration: none;
-    color: rgb(255, 255, 255);
+    // color: rgb(255, 255, 255);
+    color: $Color_Text;
     text-transform: capitalize;
     font-size: 2em;
     font-weight: 1000;
@@ -37,7 +38,8 @@ header {
 }
 
 .item a {
-    color: rgb(255, 255, 255);
+    // color: rgb(255, 255, 255);
+    color: $Color_Text;
     border-radius: 24px;
     padding: 8px 18px 8px 18px;
     font-size: 1em;
@@ -49,72 +51,15 @@ header {
 }
 
 .item a:hover {
-    color: #2b1055;
-    background: rgb(219, 241, 255);
+    color: $Color_Text;
+    background: rgb(166, 221, 255);
 }
 
 .activeNav {
-    color: #2b1055 !important;
-    background: rgb(219, 241, 255);
+    color: $Color_Text !important;
+    background: rgb(166, 221, 255);
 }
 
 .bars {
     display: none;
 }
-
-// @media screen and (max-width: 999px) {
-//     header {
-//         width: 100vw;
-//         padding: 12px 12px 12px 12px;
-//         display: block;
-//         align-items: unset;
-//         justify-content: unset;
-//         transition: 0.4s;
-//     }
-
-//     .acto2 {
-//         background-color: rgba(128, 128, 128, 0.582);
-//     }
-
-//     .nav {
-//         top: -1000px;
-//         height: 0px;
-//         width: 100%;
-//         flex-direction: column;
-//         align-items: unset;
-//         justify-content: unset;
-//         margin-top: 50px;
-//         transition: 0.5s;
-//     }
-
-//     .acto1 {
-//         top: 0 !important;
-//         height: auto !important;
-//     }
-
-//     .item {
-//         padding: 20px 0px 0px 0px;
-//         display: block;
-//         width: 100%;
-//         margin-right: unset;
-//     }
-
-//     .item a {
-//         display: block;
-//         text-align: center;
-//     }
-
-//     .bars {
-//         display: block;
-//         position: absolute;
-//         top: 17px;
-//         right: 28px;
-//         float: right;
-//         cursor: pointer;
-//     }
-
-//     .bars img {
-//         filter: invert(1);
-//         width: 29px;
-//     }
-// }

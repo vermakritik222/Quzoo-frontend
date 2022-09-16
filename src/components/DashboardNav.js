@@ -23,13 +23,14 @@ function DashboardNav(props) {
     marginTop: "7px",
   };
   const HeadingStyle = {
-    color: "rgba(255, 255, 255, 0.8)",
+    color: "#272b2e",
     fontSize: "0.7rem",
     fontWeight: "500",
     marginTop: "7px",
   };
   const IconStyle = {
-    color: "rgba(255, 255, 255, 0.8)",
+    // color: "rgba(255, 255, 255, 0.8)",
+    color: "#272b2e",
   };
 
   return (
